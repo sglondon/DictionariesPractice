@@ -115,10 +115,10 @@ namespace DictionariesPractice
             zooAnimal.Add("Gorilla", 6);
 
             Console.WriteLine("Flamingo " + 30);
-            need a way to sort by value and get highest value
+          //  need a way to sort by value and get highest value
 
             int highest = 0;
-            foreach (KeyValuePair<string, int> animal in zooAnimal) //this doesn't work, look at Rick's code on slack
+            foreach (KeyValuePair<string, int> animal in zooAnimal) 
             {
                 if (animal.Value > highest)
                 {
@@ -129,7 +129,7 @@ namespace DictionariesPractice
             Console.WriteLine(highest); //will print the number
             foreach (KeyValuePair<string, int> animal in zooAnimal)
 
-                
+
             {
                 if (animal.Value == highest)
                 {
