@@ -39,59 +39,59 @@ namespace DictionariesPractice
             drinkMachine.Add(6, "Vernors");
             drinkMachine.Add(8, "Pepsi");
 
-            Console.WriteLine(drinkMachine.Count); //count is a property, not a method. It returns the size of the dictionary
-            //we have another property called .Key
-            foreach (KeyValuePair<int, string> drink in drinkMachine)
-                Console.WriteLine(drink.Key);
+            //Console.WriteLine(drinkMachine.Count); //count is a property, not a method. It returns the size of the dictionary
+            ////we have another property called .Key
+            //foreach (KeyValuePair<int, string> drink in drinkMachine)
+            //    Console.WriteLine(drink.Key);
 
-            foreach (KeyValuePair<int, string> drink in drinkMachine)  //can use drink again because it's local variable to the loop it's in
-                Console.WriteLine(drink.Value);
+            //foreach (KeyValuePair<int, string> drink in drinkMachine)  //can use drink again because it's local variable to the loop it's in
+            //    Console.WriteLine(drink.Value);
 
-            //create a dictionary for a theater coat check with 10 elements
-            //the key will be a number, and the value will be the coat style
-            //print all values to the console
+            ////create a dictionary for a theater coat check with 10 elements
+            ////the key will be a number, and the value will be the coat style
+            ////print all values to the console
 
-            Dictionary<int, string> coatCheck = new Dictionary<int, string>()
-            {
-                {1, "Red leather coat"},
-                {2, "Jean Jacket" },
-                {3, "Pea coat" },
-                {4, "Down vest" },
-                {5, "Down coat" },
-                {6, "Rain coat" },
-                {7, "Cape" },
-                {8, "Black leather jacket" },
-                {9, "Baseball jacket" },
-                {10, "Hooded sweatshirt" }
-            };
+            //Dictionary<int, string> coatCheck = new Dictionary<int, string>()
+            //{
+            //    {1, "Red leather coat"},
+            //    {2, "Jean Jacket" },
+            //    {3, "Pea coat" },
+            //    {4, "Down vest" },
+            //    {5, "Down coat" },
+            //    {6, "Rain coat" },
+            //    {7, "Cape" },
+            //    {8, "Black leather jacket" },
+            //    {9, "Baseball jacket" },
+            //    {10, "Hooded sweatshirt" }
+            //};
 
-            foreach (KeyValuePair<int, string> coat in coatCheck)
-                Console.WriteLine(coat.Key);
+            //foreach (KeyValuePair<int, string> coat in coatCheck)
+            //    Console.WriteLine(coat.Key);
 
-            foreach (KeyValuePair<int, string> coat in coatCheck)  //can use drink again because it's local variable to the loop it's in
-                Console.WriteLine(coat.Value);
-
-
-            //create a dictionary for a car valet service with 10 cars.
-            //the key will be the customer's last name and the value
-            //will be the car make. print all keys to the console.
-
-            Dictionary<string, string> carValet = new Dictionary<string, string>();
+            //foreach (KeyValuePair<int, string> coat in coatCheck)  //can use drink again because it's local variable to the loop it's in
+            //    Console.WriteLine(coat.Value);
 
 
-            carValet.Add("Jones", "Chevy");
-            carValet.Add("Smith", "Honda");
-            carValet.Add("London", "Ford");
-            carValet.Add("James", "Volkeswagon");
-            carValet.Add("Redford", "Kia");
-            carValet.Add("Patrick", "Subaru");
-            carValet.Add("Seiger", "Porsch");
-            carValet.Add("Apple", "Honda");
-            carValet.Add("Paul", "Lexus");
-            carValet.Add("Spangler", "Toyota");
+            ////create a dictionary for a car valet service with 10 cars.
+            ////the key will be the customer's last name and the value
+            ////will be the car make. print all keys to the console.
 
-            foreach (KeyValuePair<string, string> name in carValet)
-                Console.WriteLine(name.Key);
+            //Dictionary<string, string> carValet = new Dictionary<string, string>();
+
+
+            //carValet.Add("Jones", "Chevy");
+            //carValet.Add("Smith", "Honda");
+            //carValet.Add("London", "Ford");
+            //carValet.Add("James", "Volkeswagon");
+            //carValet.Add("Redford", "Kia");
+            //carValet.Add("Patrick", "Subaru");
+            //carValet.Add("Seiger", "Porsch");
+            //carValet.Add("Apple", "Honda");
+            //carValet.Add("Paul", "Lexus");
+            //carValet.Add("Spangler", "Toyota");
+
+            //foreach (KeyValuePair<string, string> name in carValet)
+            //    Console.WriteLine(name.Key);
 
 
             //Create a dictionary of 10 zoo animals
@@ -115,10 +115,10 @@ namespace DictionariesPractice
             zooAnimal.Add("Gorilla", 6);
 
             Console.WriteLine("Flamingo " + 30);
-          //  need a way to sort by value and get highest value
+            //  need a way to sort by value and get highest value
 
             int highest = 0;
-            foreach (KeyValuePair<string, int> animal in zooAnimal) 
+            foreach (KeyValuePair<string, int> animal in zooAnimal)
             {
                 if (animal.Value > highest)
                 {
@@ -140,10 +140,44 @@ namespace DictionariesPractice
 
             //we won't be using dictionaries very much
 
+            zooAnimal.Remove("Lion");
 
+            foreach (KeyValuePair<string, int> name in zooAnimal)
+                Console.WriteLine(name.Key);
+
+            Console.WriteLine(zooAnimal.Count);
+
+            Console.WriteLine("Please enter an animal to see if it is at our zoo?");
+            string answer = Console.ReadLine();
+
+            if (zooAnimal.ContainsKey(answer) == true)
+            {
+                Console.WriteLine("We have a " + answer + " at the zoo already.");
+            }
+            else if (zooAnimal.ContainsKey(answer) != true)
+            {
+
+
+                Console.WriteLine("sorry, there is no matching animal at our zoo");
+                //       foreach (KeyValuePair<string, int> name in zooAnimal)
+                //           Console.WriteLine(name.Key);
+
+                Console.WriteLine("Would you like to add this animal? Type yes or no.");
+                string yesOrNo = Console.ReadLine();
+                if (yesOrNo == "yes")
+                {
+                    zooAnimal.Add(answer, 1);
+                    foreach (KeyValuePair<string, int> name in zooAnimal)
+                        Console.WriteLine(name.Key);
+                }
+                else Console.WriteLine("Thanks anyway!");
+            }
+        }
+            
+
+        }
 
         }
 
 
-    }
-}
+
